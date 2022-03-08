@@ -1,6 +1,5 @@
-from email.policy import default
-from django.db import models
 from django.conf import settings
+from django.db import models
 
 
 class Post(models.Model):
@@ -9,3 +8,4 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_public = models.BooleanField(default=False, db_index=True)
+    ip = models.GenericIPAddressField(null=True, editable=False)
